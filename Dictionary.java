@@ -10,9 +10,9 @@ public class Dictionary {
     private Scanner in;
 
     public Dictionary(){
-        file = new File("src/Dictionary/Dictionary.txt");
+        file = new File("Dictionary.txt");
     try{
-        in = new Scanner(new File("src/Dictionary/Dictionary.txt"));
+        in = new Scanner(file);
     }catch(FileNotFoundException e){
         System.out.println("File not found");
         }
@@ -23,18 +23,15 @@ public class Dictionary {
     }
     
     public void seekWord(String word){
-        String line = " ";//keeps a line from file
-        if(in.nextLine()!=null){
-        line = in.nextLine();}
-        System.out.println(line);
-       /* boolean isTrue = false;
+        String line = " ";//gets a line from file
+        boolean isTrue = false;
         while(isTrue == false){//seeking for a word in file
-            if (in.nextLine()!= null){
+            if (in.hasNext()){
             line = in.nextLine() + "\r\n";
             isTrue = line.startsWith(word);
             }
         }
-        System.out.println(line);*/
+        System.out.println(line);
     }
     
     

@@ -19,8 +19,8 @@ public class Word extends Dictionary{
         super.addWord(word);
     }
     
-    public String sendSeekWord(){//sending word to SuperClass for seek for it meaning into dictionary
-        return word;
+    public void sendSeekWord(){//sending word to SuperClass for seek for it meaning into dictionary
+        super.seekWord(word);
     }
     
 }
