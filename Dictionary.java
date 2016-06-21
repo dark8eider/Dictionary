@@ -1,8 +1,12 @@
 
 package Dictionary;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Dictionary {
@@ -18,8 +22,17 @@ public class Dictionary {
         }
     }
     
-    public void addWord(String s){
-        
+    public void addWord(String s){// writes word and its translation into file
+        PrintWriter output; //used for writing in file some info
+        try{
+           output = new PrintWriter(new BufferedWriter(new FileWriter(file, true)));
+           output.println(s);
+           output.close(); 
+        }catch(FileNotFoundException e){//catching all possible for this method exceptions
+            System.out.println("OOOps file not found");
+        }catch(IOException r){
+            System.out.println("OOOpppsss IO exception");
+        }
     }
     
     public void seekWord(String word){
